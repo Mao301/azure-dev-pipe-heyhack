@@ -5,7 +5,7 @@ import os
 def main():
     heyhack_api_key = os.environ['HEYHACK_API_KEY']
     target_url = os.environ['TARGET_URL']
-    heyhack_url = "https://app.heyhack.com/v1/scans"
+    heyhack_url = "https://app.heyhack.com/img/scanning.json"
     
     # Configura el payload para iniciar el escaneo
     payload = {

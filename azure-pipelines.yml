@@ -4,10 +4,6 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-variables:
-  HEYHACK_API_KEY: $(heyhackApiKey)
-  TARGET_URL: 'https://arcadia.f5latam.app'
-
 steps:
 - task: UsePythonVersion@0
   inputs:
@@ -15,7 +11,9 @@ steps:
     addToPath: true
 
 - script: |
-    pip install requests
-    echo "Starting Heyhack security scan..."
-    python heyhack_scan.py
-  displayName: 'Run Heyhack Scan'
+    pip install heyhack
+  displayName: 'Install Heyhack'
+
+- script: |
+    heyhack scan https://arcadia.f5latam.app --api-key $(heyhackApiKey)
+  displayName: 'Run Heyhack Scan New'

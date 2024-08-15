@@ -19,3 +19,4 @@ steps:
     echo "Starting Heyhack security scan..."
     python heyhack_scan.py
   displayName: 'Run Heyhack Scan'
+

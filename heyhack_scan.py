@@ -11,7 +11,7 @@ def main():
     application_id = "9c098294-da9f-4529-b424-9a8a88efc7b5"
     
     # Configura el payload para iniciar el escaneo
-    payload = {
+    params = {
         #"target": target_url,  # URL objetivo del escaneo
         #"scan_type": "full"
         
@@ -21,12 +21,14 @@ def main():
     
     headers = {
         #"Authorization": f"Bearer {heyhack_api_key}",
-        "Authorization": 'Heyhack 23UdMkr/F+6FirDbAHFjsPhenpMg3Y2EviuEKxCLjrE=' ,
+        "accept": "*/*",
+        "Authorization": 'Heyhack 23UdMkr/F+6FirDbAHFjsPhenpMg3Y2EviuEKxCLjrE='
         #"Content-Type": "application/json"
+        
     }
     
     #response = requests.post(heyhack_url, headers=headers, data=json.dumps(payload))
-    response = requests.post(heyhack_url, headers=headers, data=payload)
+    response = requests.post(heyhack_url, headers=headers, params=params, data="")
     
     if response.status_code == 200:
         print("Scan initiated successfully")

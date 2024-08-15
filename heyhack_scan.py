@@ -3,8 +3,8 @@ import json
 import os
 
 def main():
-    heyhack_api_key = os.environ['23UdMkr/F+6FirDbAHFjsPhenpMg3Y2EviuEKxCLjrE=']
-    target_url = os.environ['https://arcadia.f5latam.app/']
+    #heyhack_api_key = os.environ['23UdMkr/F+6FirDbAHFjsPhenpMg3Y2EviuEKxCLjrE=']
+    #target_url = os.environ['https://arcadia.f5latam.app/']
     #heyhack_url = "https://app.heyhack.com/img/scanning.json"
     heyhack_url = "https://app.heyhack.com/api/scanjobs"
     profile_id = "3b2f8285-6cb8-40d4-a286-b4d07870f36e"

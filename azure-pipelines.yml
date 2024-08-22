@@ -16,7 +16,8 @@ steps:
 
 - script: |
     pip install requests
-    echo "Starting Heyhack security scan..."
-    python heyhack_scan.py
-  displayName: 'Run Heyhack Scan'
+    echo "Start F5 BIG-IP service deployment for arcadia"
+    python 3_AS3_Arcadia_Creation
+    #python heyhack_scan.py
+  displayName: 'Run Arcadia deployment'
 

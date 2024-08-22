@@ -66,4 +66,6 @@ if response.status_code == 200:
     print(json.dumps(response.json(), indent=4))
 else:
     print(f"Error al enviar la declaración AS3: {response.status_code}")
+    print(response.headers)
     print(response.text)
+    

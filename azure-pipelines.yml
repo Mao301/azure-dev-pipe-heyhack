@@ -17,7 +17,7 @@ steps:
 - script: |
     pip install requests
     echo "Start F5 BIG-IP service deployment for arcadia"
-    python 3_AS3_Arcadia_Creation
+    python 3_AS3_Arcadia_Creation.py
     #python heyhack_scan.py
   displayName: 'Run Arcadia deployment'
 

@@ -68,7 +68,7 @@ response = requests.post(f5_host, headers=headers, data=json.dumps(as3_declarati
 
 # Manejar la respuesta
 if response.status_code == 200:
-    print("Declaración AS3 enviada con éxito.")
+    print("Declaración AS3 enviada con éxito para la creación.")
     print("Respuesta del servidor F5:")
     print(json.dumps(response.json(), indent=4))
 else:

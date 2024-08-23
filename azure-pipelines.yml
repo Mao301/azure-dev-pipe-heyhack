@@ -6,7 +6,6 @@ pool:
 
 variables:
   HEYHACK_API_KEY: $(heyhackApiKey)
-  #TARGET_URL: 'https://arcadia.f5latam.app'
 
 steps:
 - task: UsePythonVersion@0
@@ -19,17 +18,17 @@ steps:
     echo "Start F5 BIG-IP service deployment for arcadia"
     echo "Inicia la autenticacion"
     python 1_AS3_Authentication.py
-    echo "El valor del token es: $(AUTH_TOKEN)"
+    if [ $? -eq 0 ]; then
+      echo "El valor del token es: $(AUTH_TOKEN)"
+    else
+      echo "Error en la autenticación, deteniendo el pipeline."
+      exit 1
+    fi
   displayName: 'Autentica y Almacena Token de Autenticación'
-
 
 - script: |
     pip install requests
-    python     python 3_AS3_Arcadia_Creation.py
+    python 3_AS3_Arcadia_Creation.py
   env:
     AUTH_TOKEN: $(AUTH_TOKEN)
-    #F5_HOST: $(F5_HOST)
-    displayName: 'Enviar Declaración AS3 al F5'
-    #python heyhack_scan.py
   displayName: 'Run Arcadia deployment'
-

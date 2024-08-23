@@ -28,13 +28,13 @@ response_data = response.json()
 token = response_data.get('token', {}).get('token')
 # Manejar la respuesta
 if response.status_code == 200:
-    print("Declaración AS3 enviada con éxito.")
+    print("Declaración AS3 enviada con éxito para autenticacion.")
     print("Respuesta del servidor F5:")
     if token: print(f"##vso[task.setvariable variable=AUTH_TOKEN]{token}")
     #print(f"Authentication Token: {token}")
     #print(json.dumps(response.json(), indent=4))
 else:
-    print(f"Error al enviar la declaración AS3: {response.status_code}")
+    print(f"Error al enviar la declaración AS3 2: {response.status_code}")
     print(response.headers)
     print(response.text)
     

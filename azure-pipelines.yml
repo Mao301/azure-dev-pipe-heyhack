@@ -11,12 +11,16 @@ variables:
 steps:
 - task: UsePythonVersion@0
   inputs:
-    versionSpec: '3.11.3'
+    versionSpec: '3.12.5'
     addToPath: true
 
 - script: |
     pip install requests
     echo "Start F5 BIG-IP service deployment for arcadia"
+    python 1_AS3_Authentication.py
+    echo "Inicia la autenticacion"
+    echo "El valor del token es: $(AUTH_TOKEN)"
+
     python 3_AS3_Arcadia_Creation.py
     #python heyhack_scan.py
   displayName: 'Run Arcadia deployment'

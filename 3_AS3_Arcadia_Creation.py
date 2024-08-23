@@ -1,12 +1,19 @@
 import requests
 import json
+import os
+import urllib3
 from requests.auth import HTTPBasicAuth
+
+
+# Deshabilitar advertencias de certificados SSL autofirmados
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # Configuración de la conexión a F5
 
 f5_host = 'https://52.176.220.110:8443/mgmt/shared/appsvcs/declare'  # Reemplaza <F5_HOST> con la dirección IP o el nombre de host de tu F5
 username = 'admin'  # Cambia a tus credenciales de F5
 password = 'f5DEMOs4uLATAM'  # Cambia a tus credenciales de F5
+auth_token = os.getenv('AUTH_TOKEN') # Toma el token de autorización como variable de entorno
 
 # Definición del Virtual Server usando AS3
 as3_declaration = {
@@ -52,7 +59,7 @@ as3_declaration = {
 # Headers para la solicitud
 headers = {
     'Content-Type': 'application/json',
-    'X-F5-Auth-Token': '2WHNQVMRRBEFIZDOIUWJUIZ2Y4',
+    'X-F5-Auth-Token': auth_token
     #'Authorization': 'Basic ' + requests.auth._basic_auth_str(username, password)
 }
 

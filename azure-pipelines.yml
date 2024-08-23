@@ -17,11 +17,19 @@ steps:
 - script: |
     pip install requests
     echo "Start F5 BIG-IP service deployment for arcadia"
-    python 1_AS3_Authentication.py
     echo "Inicia la autenticacion"
+    python 1_AS3_Authentication.py
     echo "El valor del token es: $(AUTH_TOKEN)"
+  displayName: 'Autentica y Almacena Token de Autenticación'
 
-    python 3_AS3_Arcadia_Creation.py
+
+- script: |
+    pip install requests
+    python     python 3_AS3_Arcadia_Creation.py
+  env:
+    AUTH_TOKEN: $(AUTH_TOKEN)
+    #F5_HOST: $(F5_HOST)
+    displayName: 'Enviar Declaración AS3 al F5'
     #python heyhack_scan.py
   displayName: 'Run Arcadia deployment'
 

@@ -3,7 +3,7 @@ import json
 import os
 
 def main():
-    heyhack_api_key = '23UdMkr/F+6FirDbAHFjsPhenpMg3Y2EviuEKxCLjrE='
+    heyhack_api_key = "23UdMkr/F+6FirDbAHFjsPhenpMg3Y2EviuEKxCLjrE="
     #heyhack_api_key = os.environ['HEYHACK_API_KEY']
     #target_url = os.environ['https://arcadia.f5latam.app/']
     heyhack_url = "https://app.heyhack.com/api/scanjobs"
